@@ -112,6 +112,7 @@ public class GameOverUIManager : MonoBehaviour
 
     private void OnHomeClicked()
     {
+        CheckCpAd.instance.CallAd();
         if (isInputLocked) return;
         isInputLocked = true;
         StartCoroutine(ButtonPressAnim(homeButton.transform, () =>
@@ -122,6 +123,7 @@ public class GameOverUIManager : MonoBehaviour
 
     private void OnRetryClicked()
     {
+        CheckCpAd.instance.CallAd();
         if (isInputLocked) return;
         isInputLocked = true;
         StartCoroutine(ButtonPressAnim(retryButton.transform, () =>
