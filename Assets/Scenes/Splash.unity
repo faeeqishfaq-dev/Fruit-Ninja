@@ -627,7 +627,7 @@ MonoBehaviour:
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 52
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -7085,7 +7085,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2133064640, guid: d648e88642c859b4e882dceb7af963b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: abc04d0d6ebc44828ad7b31d8f3e22c5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
