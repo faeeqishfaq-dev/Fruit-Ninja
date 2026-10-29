@@ -27,10 +27,10 @@ public class GameOverUIManager : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        if (panelRect != null) 
+        if (panelRect != null)
         {
             panelRect.gameObject.SetActive(false);
-            
+
             // 1. Fix Missing GraphicRaycaster on Canvas
             Canvas canvas = panelRect.GetComponentInParent<Canvas>();
             if (canvas != null && canvas.GetComponent<UnityEngine.UI.GraphicRaycaster>() == null)
@@ -58,7 +58,7 @@ public class GameOverUIManager : MonoBehaviour
     public void ShowPanel(int currentScore, int bestScore)
     {
         if (panelRect == null) return;
-        
+
         isInputLocked = true; // Lock until animation finishes
 
         // Record the final score once for the persistent leaderboard history
@@ -88,7 +88,7 @@ public class GameOverUIManager : MonoBehaviour
 
             Vector2 targetBounce = finalPosition + new Vector2(0, -bounceStrength);
             panelRect.anchoredPosition = Vector2.Lerp(startOffset, targetBounce, ease);
-            
+
             yield return null;
         }
 
@@ -116,16 +116,19 @@ public class GameOverUIManager : MonoBehaviour
         isInputLocked = true;
         StartCoroutine(ButtonPressAnim(homeButton.transform, () =>
         {
+            CheckCpAd.instance.CallAd();
             SceneManager.LoadScene("Splash");
         }));
     }
 
     private void OnRetryClicked()
     {
+
         if (isInputLocked) return;
         isInputLocked = true;
         StartCoroutine(ButtonPressAnim(retryButton.transform, () =>
         {
+            CheckCpAd.instance.CallAd();
             SceneManager.LoadScene("FruitNinja");
         }));
     }
@@ -151,7 +154,7 @@ public class GameOverUIManager : MonoBehaviour
             btnTransform.localScale = Vector3.Lerp(pressScale, originalScale, elapsed / duration);
             yield return null;
         }
-        
+
         btnTransform.localScale = originalScale;
         onComplete?.Invoke();
     }
